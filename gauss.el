@@ -1,20 +1,20 @@
 (setenv "PYTHONPATH" "/pluto/pluto:/pluto/pycloud")
 (setenv "LD_LIBRARY_PATH" "/pluto/local/lib:/usr/local/lib")
-(setenv "PATH" "/home/mahmoud/bin:/pluto/local/bin:/home/mahmoud/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games")
+(setenv "PATH" "/home/matt/bin:/pluto/local/bin:/home/matt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games")
 
-;(when (load "flymake" t)
-  ;(defun flymake-pylint-init ()
-    ;(let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       ;'flymake-create-temp-inplace))
-           ;(local-file (file-relative-name
-                        ;temp-file
-                        ;(file-name-directory buffer-file-name))))
-      ;(list "/home/mahmoud/bin/lintrunner.py" (list local-file))))
+(when (load "flymake" t)
+  (defun flymake-pylint-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list "/home/mahmoud/bin/lintrunner.py" (list local-file))))
 
-  ;(add-to-list 'flymake-allowed-file-name-masks
-               ;'("\\.py\\'" flymake-pylint-init)))
+  (add-to-list 'flymake-allowed-file-name-masks
+               '("\\.py\\'" flymake-pylint-init)))
 
-;(add-hook 'python-mode-hook (lambda() (flymake-mode t)))
+(add-hook 'python-mode-hook (lambda() (flymake-mode t)))
 
 ;; (setq default-frame-alist
 ;;       (append
