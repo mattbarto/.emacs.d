@@ -111,7 +111,6 @@
 (global-set-key (kbd "C-M-_") 'elscreen-previous)
 (global-set-key (kbd "C-M-+") 'elscreen-next)
 
-
 ;; --------------------------------------
 ;; set cursor type
 ;; -------------------------------------
